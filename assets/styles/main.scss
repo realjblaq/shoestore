@@ -333,8 +333,9 @@ main{
         &:hover{
             box-shadow: $shadow;
             .shoe__card__overlay{
-                display: flex;
-                transition: all 0.2s ease-in-out;
+                // display: flex;
+                top: 0;
+                transition: 0.5s;
             }
         }
 
@@ -346,13 +347,13 @@ main{
 
         .shoe__card__overlay{
             position: absolute;
-            top: 0;
+            top: 300px;
             bottom: 0;
             left: 0;
             right: 0;
             background-color: $overlay;
-            transition: all 0.2s ease-in-out;
-            display: none;
+            transition: .5s;
+            display: flex;
             flex-direction: column;
 
             .overlay__icons{
@@ -378,8 +379,6 @@ main{
                 }
             }
         }
-
-
 
     }
 }
