@@ -14,12 +14,9 @@ window.addEventListener("scroll", function () {
 	} else {
 		remove_class_on_scroll();
 	}
-
-	console.log(scrollpos);
 });
 
 // Activate smooth scrolling
-// smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 	anchor.addEventListener("click", function (e) {
 		e.preventDefault();
@@ -27,4 +24,15 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 			behavior: "smooth",
 		});
 	});
+});
+
+// Reveal password
+$("body").on("click", ".password__button", function () {
+	$(this).find("i").toggleClass("fa-eye fa-eye-slash");
+	let input = $(this).parents(".input-group").find("input");
+	if (input.attr("type") === "password") {
+		input.attr("type", "text");
+	} else {
+		input.attr("type", "password");
+	}
 });

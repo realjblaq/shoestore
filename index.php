@@ -22,18 +22,7 @@
 <body>
 
     <!-- Navigation bar -->
-    <nav class="">
-        <div class="container nav__container">
-            <h1>
-                <span class="font-black h1">Shoe</span><span class="text-primary font-black h1">store</span>
-            </h1>
-            <span class="cart active">
-                <button class="btn btn-icon">
-                    <img class="cart__icon" src="assets/images/icons/shopping-bag.svg" alt="">
-                </button>
-            </span>
-        </div>
-    </nav>
+    <?php include 'includes/navigation-bar.php';?>
 
     <!-- Hero / header section -->
     <header>
@@ -227,8 +216,11 @@
         </section>
     </main>
 
-    <!-- Include the login modal -->
-    <?php include 'includes/login-modal.php';?>
+    <!-- Include the login and register modals -->
+    <?php 
+        include 'includes/login-modal.php';
+        include 'includes/register-modal.php';
+    ?>
 
 
     <!-- Import bootstrap Javascript libraries -->
