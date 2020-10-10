@@ -251,7 +251,7 @@ header .header__container {
 header .header__container .header__image {
   position: absolute;
   top: 0;
-  right: 155px;
+  right: 170px;
   width: 400px;
   height: 100%;
   -o-object-fit: contain;

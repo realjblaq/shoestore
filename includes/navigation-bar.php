@@ -19,10 +19,10 @@
                 Login/Register
             </button>
             <a href="">Login / Register</a> -->
-        <span class="nav__cart">
+        <!-- <span class="nav__cart">
             <a href="./cart.php" class="btn btn-icon">
                 <img class="cart__icon" src="assets/images/icons/shopping-bag.svg" alt="">
             </a>
-        </span>
+        </span> -->
     </div>
 </nav>
