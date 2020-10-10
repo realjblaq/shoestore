@@ -50,12 +50,12 @@
                     </div>
 
                     <div class="modal-footer px-0 border-0 d-flex justify-content-between">
-                        <a href="#">Sign in here.</a>
+                        <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#login__modal">Sign in
+                            here.</a>
                         <span>
                             <button type="submit" class="btn btn-primary">Register</button>
                         </span>
                     </div>
-
                 </form>
             </div>
 

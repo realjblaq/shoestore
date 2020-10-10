@@ -32,7 +32,8 @@
                     </div>
 
                     <div class="modal-footer px-0 border-0 d-flex justify-content-between">
-                        <a href="#!">Register here.</a>
+                        <a href="#!" data-dismiss="modal" data-toggle="modal" data-target="#register__modal">Register
+                            here.</a>
                         <span>
                             <button type="submit" class="btn btn-primary">Register</button>
                         </span>
