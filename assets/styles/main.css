@@ -469,6 +469,7 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
 .cart {
   padding-top: 100px;
   min-height: 100vh;
+  position: relative;
 }
 
 .cart .cart__list .cart__list__item {
@@ -516,6 +517,30 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
 
 .cart .cart__list .cart__list__item .cart__card .cart__item__total {
   font-family: "Averta Bold";
+}
+
+.cart .cart__container .cart__row {
+  position: relative;
+}
+
+.cart .cart__container .cart__row .cart__right {
+  position: fixed;
+  right: 13%;
+  width: 400px;
+}
+
+@media (max-width: 600px) {
+  .cart .cart__container .cart__row .cart__right {
+    position: unset;
+    right: unset;
+  }
+}
+
+@media (min-width: 1900px) {
+  .cart .cart__container .cart__row .cart__right {
+    position: unset;
+    right: unset;
+  }
 }
 
 .checkout:hover {

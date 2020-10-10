@@ -25,9 +25,9 @@
     <?php include 'includes/navigation-bar.php';?>
 
     <div id="cart" class="cart">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+        <div class="container cart__container">
+            <div class="row cart__row">
+                <div class="col-md-7">
 
                     <h3>
                         Cart
@@ -170,7 +170,7 @@
                     </ul>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 cart__right">
                     <h3 class="mb-3">
                         Summary
                     </h3>

@@ -388,6 +388,7 @@ main{
     padding-top: 100px;
     min-height: 100vh;
     // background-color: red;
+    position: relative;
 
     .cart__list{
 
@@ -431,6 +432,27 @@ main{
             }
         }
     }
+
+    .cart__container{
+        .cart__row{
+            position: relative;
+            .cart__right{
+                position: fixed;
+                right: 13%;
+                width: 400px;
+                @media(max-width: 600px){
+                    position: unset;
+                    right: unset;
+                }
+                @media(min-width: 1900px){
+                    position: unset;
+                    right: unset;
+
+                }
+            }
+        }
+    }
+   
 }
 .checkout{
     // border-left: 1px $grey solid;
