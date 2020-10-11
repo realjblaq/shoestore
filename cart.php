@@ -1,3 +1,10 @@
+<?php
+    session_start(); //Start the session 
+
+    if (!isset($_SESSION['userId'])) {
+        header('location:./'); //If user is not logged in send user back to homepage
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

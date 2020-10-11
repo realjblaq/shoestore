@@ -36,3 +36,104 @@ $("body").on("click", ".password__button", function () {
 		input.attr("type", "password");
 	}
 });
+
+//On login submit
+$("#login__form").submit(function (event) {
+	event.preventDefault();
+	let form = $(this).serialize();
+	$("#login__button").attr("disabled", true);
+	$("#login__button").find(".spinner-border").fadeIn();
+
+	$.ajax({
+		method: "post",
+		data: form,
+		url: "api/login.php",
+		success: function (success) {
+			var result = JSON.parse(success);
+			if (result.status == 200) {
+				$("#login__email").removeClass("is-invalid");
+				$("#login__password").removeClass("is-invalid");
+				// console.log(result);
+				window.location.href = "./";
+			} else {
+				$("#login__email").addClass("is-invalid");
+				$("#login__password").addClass("is-invalid");
+				$("#login__button").attr("disabled", false);
+				$("#login__button").find(".spinner-border").fadeOut();
+			}
+		},
+		error: function (error) {},
+	});
+});
+
+// On register submit
+$("#register__form").submit(function (event) {
+	event.preventDefault();
+	let form = $(this).serialize();
+	$("#register__button").attr("disabled", true);
+	$("#register__button").find(".spinner-border").fadeIn();
+	// console.log(form);
+
+	$.ajax({
+		method: "post",
+		data: form,
+		url: "api/register.php",
+		success: function (success) {
+			let result = JSON.parse(success);
+			console.log(success);
+
+			if (result.status == 200) {
+				$("#register__email").removeClass("is-invalid");
+				$("#register__modal").modal("hide");
+				Swal.fire({
+					position: "center",
+					icon: "success",
+					title: "<span clas='text-white'>You have been registered.</span>",
+					showConfirmButton: true,
+					confirmButtonText: `Continue`,
+					allowOutsideClick: false,
+					background: "#fff url(assets/images/bg.jpg)",
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location.href = "./";
+					}
+				});
+			} else {
+				$("#register__email").addClass("is-invalid");
+				$("#register__button").attr("disabled", false);
+				$("#register__button").find(".spinner-border").fadeOut();
+			}
+		},
+		error: function (error) {},
+	});
+});
+
+// on cart icon click
+$(".btn-card-icon").click(function () {
+	//check if user is logged in;
+
+	$.ajax({
+		url: "api/check_user_session.php",
+		success: function (success) {
+			let result = JSON.parse(success);
+			if (result.session == true) {
+			} else {
+				Swal.fire({
+					icon: "error",
+					// title: "Oops...",
+					text: "You need to be logged in to buy our sneakers.",
+					footer: "<a href='#!' onclick='swal.close();' data-toggle='modal' data-target='#register__modal'>Don't have an account? Sign up here.</a>",
+					showConfirmButton: true,
+					confirmButtonText: `Login`,
+					allowOutsideClick: false,
+					background: `#fff url(assets/images/bg.jpg)
+                                no-repeat`,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						$("#login__modal").modal("show");
+					}
+				});
+			}
+		},
+	});
+});

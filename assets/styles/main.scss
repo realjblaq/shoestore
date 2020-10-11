@@ -18,9 +18,9 @@ body{
 .text-primary{
     color: $primary-color !important;
 }
-.btn-primary{
-    background-color: $primary-color;
-    border-color: $primary-color;
+.btn-primary,.swal2-styled.swal2-confirm{
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
 
     &:hover{
         background-color: darken($primary-color, 10%);
@@ -35,6 +35,10 @@ body{
         background-color: darken($primary-color, 10%) !important;
         border-color: darken($primary-color, 10%) !important;
     }
+}
+.btn-primary.disabled, .btn-primary:disabled{
+    background-color: lighten($primary-color, 20%);
+    border-color: lighten($primary-color, 20%);
 }
 .password__input{
     border-right:0 ;
@@ -125,6 +129,8 @@ nav{
         .nav__username{
             margin-left: auto;
             margin-right: 20px;
+            cursor: pointer;
+            text-transform: capitalize;
         }
 
         .nav__cart{
@@ -335,7 +341,7 @@ main{
             .shoe__card__overlay{
                 // display: flex;
                 top: 0;
-                transition: 0.5s;
+                transition: .5s;
             }
         }
 
@@ -458,4 +464,13 @@ main{
     &:hover{
         box-shadow: $shadow;
     }
+}
+.swal2-success-circular-line-left,.swal2-success-circular-line-right,.swal2-success-fix{
+    background-color: unset !important;
+}
+#swal2-title{
+    color: white !important;;
+}
+.swal2-footer{
+    border-top: none !important;
 }
