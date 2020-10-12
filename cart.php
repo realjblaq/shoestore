@@ -1,5 +1,7 @@
 <?php
     session_start(); //Start the session 
+    include 'server/databaseClass.php';
+    $database = new databaseClass();
 
     if (!isset($_SESSION['userId'])) {
         header('location:./'); //If user is not logged in send user back to homepage
@@ -42,137 +44,76 @@
 
                     <ul class="list-unstyled cart__list">
 
-                        <li class="cart__list__item">
-                            <div class="card cart__card">
-                                <div class="row">
-                                    <div class="col-md-4 cart__card__left">
-                                        <img class="cart__image" src="assets/images/store/air-max-90.jpg" alt="">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="font-bold">
-                                                Product Name Here
-                                            </h6>
-                                            <div class="d-flex justify-content-between mb-2">
-                                                <span class="text-muted">Shoe</span>
-                                                <span class="cart__item__price">GHS200.00</span>
-                                            </div>
+                        <?php
+                            // get the cart items for this user
+                            $sub_total=0;
+                            $get_cart_items = $database->getRows("SELECT * FROM cart WHERE `user_id`=?",[$_SESSION['userId']]);
+                            if ($get_cart_items) {
+                                // for every cart item, use the cart item ID to get the shoe details from the sheos table
+                                for ($i=0; $i <count($get_cart_items) ; $i++) { 
+                                    $get_shoes = $database->getRows('SELECT * FROM shoes WHERE `id`=?',[$get_cart_items[$i]['shoe_id']]);
+                                    if ($get_shoes) {
+                                        // echo json_encode($get_shoes);
+                                        for ($x=0; $x <count($get_shoes) ; $x++) { 
+                                            // Add to subtotal
+                                            $sub_total = $sub_total+$get_shoes[$x]['price']*$get_cart_items[$i]['quantity'];
+                                            echo '
+                                                <li class="cart__list__item" data-shoe-id="'.$get_shoes[$x]['id'].'">
+                                                    <div class="card cart__card">
+                                                        <div class="row">
+                                                            <div class="col-md-4 cart__card__left">
+                                                                <img class="cart__image" src="assets/images/store/'.$get_shoes[$x]['image'].'" alt="">
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="card-body">
+                                                                    <h6 class="font-bold">
+                                                                       '.$get_shoes[$x]['name'].'
+                                                                    </h6>
+                                                                    <div class="d-flex justify-content-between mb-2">
+                                                                        <span class="text-muted">'.$get_shoes[$x]['category'].'</span>
+                                                                        <span class="cart__item__price">GHS'.$get_shoes[$x]['price'].'</span>
+                                                                    </div>
 
 
-                                            <div class="d-flex flex-row align-items-center my-3">
-                                                <label class="mr-2 text-muted" for="">Qty:</label>
-                                                <select name="" class="form-control flex-grow-1 mr-auto" id="">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">7</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </div>
+                                                                    <div class="d-flex flex-row align-items-center my-3">
+                                                                        <label class="mr-2 text-muted" for="cart__item__quantity">Qty:</label>
+                                                                        <select name="cart__item__quantity" value="" class="form-control flex-grow-1 mr-auto cart__item__quantity" data-cart-id="'.$get_cart_items[$i]['id'].'">
+                                                                            <option selected disabled hidden>'.$get_cart_items[$i]['quantity'].'</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                        </select>
+                                                                    </div>
 
-                                            <div class="d-flex justify-content-between">
-                                                <span class="text-muted">Total</span>
-                                                <span class="cart__item__total">GHS400.00</span>
-                                            </div>
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <span class="text-muted">Total</span>
+                                                                        <span class="cart__item__total">GHS '.number_format($get_shoes[$x]['price']*$get_cart_items[$i]['quantity'], 2, '.', ',').'</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            ';
+                                        }
+                                    }
+                                }
+                                echo '<div class="text-center"><a href="./#main" class="btn btn-secondary mt-4">Continue shopping</a></div>';
+                            }else{
+                                echo '
+                                    <p class="mt-5">Your cart is empty!</p>
+                                    <a href="./#main" class="btn btn-secondary">Go to shop</a>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="cart__list__item">
-                            <div class="card cart__card">
-                                <div class="row">
-                                    <div class="col-md-4 cart__card__left">
-                                        <img class="cart__image" src="assets/images/store/air-max-90.jpg" alt="">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="font-bold">
-                                                Product Name Here
-                                            </h6>
-                                            <div class="d-flex justify-content-between mb-2">
-                                                <span class="text-muted">Shoe</span>
-                                                <span class="cart__item__price">GHS200.00</span>
-                                            </div>
-
-
-                                            <div class="d-flex flex-row align-items-center my-3">
-                                                <label class="mr-2 text-muted" for="">Qty:</label>
-                                                <select name="" class="form-control flex-grow-1 mr-auto" id="">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">7</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="d-flex justify-content-between">
-                                                <span class="text-muted">Total</span>
-                                                <span class="cart__item__total">GHS400.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="cart__list__item">
-                            <div class="card cart__card">
-                                <div class="row">
-                                    <div class="col-md-4 cart__card__left">
-                                        <img class="cart__image" src="assets/images/store/air-max-90.jpg" alt="">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h6 class="font-bold">
-                                                Product Name Here
-                                            </h6>
-                                            <div class="d-flex justify-content-between mb-2">
-                                                <span class="text-muted">Shoe</span>
-                                                <span class="cart__item__price">GHS200.00</span>
-                                            </div>
-
-
-                                            <div class="d-flex flex-row align-items-center my-3">
-                                                <label class="mr-2 text-muted" for="">Qty:</label>
-                                                <select name="" class="form-control flex-grow-1 mr-auto" id="">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">7</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="d-flex justify-content-between">
-                                                <span class="text-muted">Total</span>
-                                                <span class="cart__item__total">GHS400.00</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                                ';
+                            }
+                        ?>
 
                     </ul>
 
@@ -187,24 +128,27 @@
                                 <li>
                                     <div class="d-flex justify-content-between">
                                         <span class="text-muted">Subtotal</span>
-                                        <span class="cart__item__total">GHS1,400.00</span>
+                                        <span class="cart__sub__total">GHS
+                                            <?php echo number_format($sub_total,2,'.',',') ;?></span>
                                     </div>
                                 </li>
                                 <li class="my-4">
                                     <div class="d-flex justify-content-between">
                                         <span class="text-muted">Delivery cost</span>
-                                        <span class="cart__item__total">GHS20.00</span>
+                                        <span class="cart__delivery__cost">GHS20.00</span>
                                     </div>
                                 </li>
                                 <li class="border-top border-bottom py-3">
                                     <div class="d-flex justify-content-between">
                                         <span class="">Total</span>
-                                        <span class="cart__item__total font-bold">GHS1,420.00</span>
+                                        <span id="grand__total" class="cart__grand__total font-bold">
+                                            GHS <?php echo number_format($sub_total+20,2,'.',',') ;?>
+                                        </span>
                                     </div>
                                 </li>
                             </ul>
 
-                            <button class="btn btn-primary btn-lg btn-block">Checkout</button>
+                            <button class="btn btn-primary btn-lg btn-block checkout__button">Checkout</button>
                         </div>
                     </div>
                 </div>
@@ -232,6 +176,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
     <!-- Custom script -->
     <script src="assets/javascripts/index.js"></script>

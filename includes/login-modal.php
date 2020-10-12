@@ -15,8 +15,8 @@
                     <!-- Email input -->
                     <div class="form-group">
                         <label for="login__email">Email</label>
-                        <input id="login__email" value="justicemarkwei@gmail.com" name="login__email" type="email"
-                            class="form-control form-control-lg" required>
+                        <input id="login__email" name="login__email" type="email" class="form-control form-control-lg"
+                            required>
                         <div class="invalid-feedback">
                             Invalid email or password.
                         </div>
@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="login__password">Enter your Password</label>
                         <div class="input-group input-group-lg mb-3">
-                            <input id="login__password" value="password" name="login__password" type="password"
+                            <input id="login__password" name="login__password" type="password"
                                 class="form-control password__input" aria-label="Password" required>
                             <div class="input-group-append">
                                 <button class="btn password__button__icon password__button" type="button">

@@ -1,5 +1,8 @@
 <?php
     session_start(); //Start the session 
+
+    include 'server/databaseClass.php';
+    $database = new databaseClass();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,158 +65,54 @@
 
                 <div class="row mt-4">
 
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/air-max-90.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">NIKE AIR MAX 90</h6>
-                                    <small class="overlay__text">Men's shoe</small>
-                                    <h6 class="overlay__price">GHS 200.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- display all the shoes from the database here -->
+                    <?php
+                    
+                        // get all available shoes and their information from the database
+                        $get_shoes = $database->getRows("SELECT * FROM shoes ORDER BY `name` ASC");
+                        
+                        // Loop through the data and display them one by one with a foreloop 
+                        for ($i=0; $i <count($get_shoes) ; $i++) { 
 
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/air-max-plus-3.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">NIKE AIR MAX plus 3</h6>
-                                    <small class="overlay__text">Men's shoe</small>
-                                    <h6 class="overlay__price">GHS 300.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/sb-zoom-blazer-mid-pro-gt-skate-shoe.jpg"
-                                alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">Nike SB Zoom Blazer Mid Pro GT</h6>
-                                    <small class="overlay__text">Skate shoe</small>
-                                    <h6 class="overlay__price">GHS 500.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/sb-dunk-low-pro-dark-grey.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">SB Dunk Low Pro</h6>
-                                    <small class="overlay__text">skate shoe</small>
-                                    <h6 class="overlay__price">GHS 200.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/air-deschutz-betrue-shoe.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">Nike Air Deschutz BETRUE</h6>
-                                    <small class="overlay__text">shoe</small>
-                                    <h6 class="overlay__price">GHS 150.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/space-hippie-01-shoe.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">Nike Space Hippie 01</h6>
-                                    <small class="overlay__text">shoe</small>
-                                    <h6 class="overlay__price">GHS 250.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/acg-air-nasu-shoe.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">Nike ACG Air Nasu</h6>
-                                    <small class="overlay__text">shoe</small>
-                                    <h6 class="overlay__price">GHS 100.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 mb-4 d-flex">
-                        <div class="card shoe__card">
-                            <img class="shoe__image" src="assets/images/store/air-jordan-v-low-golf-shoe.jpg" alt="">
-                            <div class="shoe__card__overlay">
-                                <span class="overlay__icons">
-                                    <button class="btn btn-icon btn-card-icon">
-                                        <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
-                                            alt="">
-                                    </button>
-                                </span>
-                                <span class="overlay__info">
-                                    <h6 class="overlay__title">Air Jordan V Low</h6>
-                                    <small class="overlay__text">Golf Shoe</small>
-                                    <h6 class="overlay__price">GHS 600.00</h6>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                            // check if shoe is in cart
+                            $style='';
+                            if (isset($_SESSION['userId'])) {
+                                 $check_cart = $database->getRow("SELECT * FROM cart WHERE shoe_id = ? AND user_id = ?",[$get_shoes[$i]['id'],$_SESSION['userId']]);
+                                if ($check_cart) {
+                                    $style = 'block';
+                                }else{
+                                    $style = 'none';
+                                }
+                            }else{
+                                $style = 'none';
+                            }
+                          
+                           echo'
+                                <div class="col-md-3 mb-4 d-flex">
+                                    <div class="card shoe__card">
+                                        <img class="shoe__image" src="assets/images/store/'.$get_shoes[$i]['image'].'" alt="">
+                                        <div class="shoe__card__overlay">
+                                            <div class="added">
+                                                <small class="p-2 text-primary font-bold text-center added__to__cart" style="display:'.$style.';">Added to cart</small>
+                                            </div>
+                                            <span class="overlay__icons">
+                                                <button class="btn btn-icon btn-card-icon" data-shoe-id="'.$get_shoes[$i]['id'].'">
+                                                    <img class="cart__icon" width="100%" src="assets/images/icons/shopping-bag.svg"
+                                                        alt="">
+                                                </button>
+                                            </span>
+                                            <span class="overlay__info">
+                                                <h6 class="overlay__title">'.$get_shoes[$i]['name'].'</h6>
+                                                <small class="overlay__text">'.$get_shoes[$i]['category'].'</small>
+                                                <h6 class="overlay__price">GHS <span class="shoe__card__item__price">'.$get_shoes[$i]['price'].'</span>
+                                                </h6>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                           ';
+                        }
+                    ?>
                 </div>
             </div>
         </section>
@@ -224,12 +123,6 @@
         include 'includes/login-modal.php';
         include 'includes/register-modal.php';
     ?>
-
-
-    <!-- Import bootstrap Javascript libraries -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script> -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

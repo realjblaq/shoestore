@@ -18,21 +18,21 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="register__firstname">First name</label>
-                                <input id="register__firstname" value="justice" name="register__firstname" type="text"
+                                <input id="register__firstname" name="register__firstname" type="text"
                                     class="form-control form-control-lg" required>
                             </div>
                         </div>
                         <!-- Last name input -->
                         <div class="col-md-6">
                             <label for="register__lastname">Last name</label>
-                            <input id="register__lastname" value="markwei" name="register__lastname" type="text"
+                            <input id="register__lastname" name="register__lastname" type="text"
                                 class="form-control form-control-lg">
                         </div>
                     </div>
                     <!-- Email input -->
                     <div class="form-group">
                         <label for="register__email">Email</label>
-                        <input id="register__email" value="justicemarkwei@gmail.com" name="register__email" type="email"
+                        <input id="register__email" name="register__email" type="email"
                             class="form-control form-control-lg">
                         <div class="invalid-feedback">
                             User already exists! Try another email.
@@ -43,7 +43,7 @@
                         <label for="register__password">Choose your Password</label>
                         <div class="input-group input-group-lg mb-3">
                             <input id="register__password" name="register__password" type="password"
-                                class="form-control password__input" value="password" aria-label="Password">
+                                class="form-control password__input" aria-label="Password">
                             <div class="input-group-append">
                                 <button class="btn password__button__icon password__button" type="button">
                                     <i class="fa fa-eye"></i>

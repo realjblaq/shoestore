@@ -566,4 +566,13 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
 .swal2-footer {
   border-top: none !important;
 }
+
+.added {
+  min-height: 30px;
+  text-align: center;
+}
+
+.swal2-actions {
+  direction: rtl;
+}
 /*# sourceMappingURL=main.css.map */
