@@ -1,0 +1,483 @@
+@import 'variables';
+@import 'fonts';
+html,body{
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+*,
+body{
+    font-family: 'Averta';
+    color: $black;
+}
+.font-black{
+    font-family: 'Averta Black' !important;
+}
+.font-bold{
+    font-family: 'Averta Bold' !important;
+}
+.text-primary{
+    color: $primary-color !important;
+}
+.btn-primary,.swal2-styled.swal2-confirm{
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+
+    &:hover{
+        background-color: darken($primary-color, 10%);
+        border-color: darken($primary-color, 10%);
+    }
+
+    &:focus{
+        background-color: darken($primary-color, 10%) !important;
+        border-color: darken($primary-color, 10%) !important;
+    }
+    &:active{
+        background-color: darken($primary-color, 10%) !important;
+        border-color: darken($primary-color, 10%) !important;
+    }
+}
+.btn-primary.disabled, .btn-primary:disabled{
+    background-color: lighten($primary-color, 20%);
+    border-color: lighten($primary-color, 20%);
+}
+.password__input{
+    border-right:0 ;
+}
+.password__button__icon{
+    border: 1px #ced4da solid;
+    border-left: 0;
+}
+.btn-icon{
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    @media(max-width:600px){
+        height: 50px;
+        width: 50px;
+    }
+    img{
+        margin: auto;
+    }
+    &:hover{
+        background-color: lighten($grey, 10%);
+    }
+    &:focus{    
+        background-color: lighten($grey, 10%);
+
+    }
+    &:active{    
+        background-color: lighten($grey, 10%);
+
+    }
+}
+
+
+.btn-icon-primary{
+    background-color: $primary-color;
+
+    i{
+        color: white;
+    }
+
+    &:hover{
+        background-color: lighten($primary-color, 10%);
+    }
+    &:focus{    
+        background-color: lighten($primary-color, 10%);
+
+    }
+    &:active{    
+        background-color: lighten($primary-color, 10%);
+
+    }
+}
+
+.btn-card-icon{
+    background-color: white;
+}
+a{
+    color: $secondary-color;
+
+    &:hover{
+        color: darken($secondary-color,10%);
+    }
+}
+nav{
+    max-height: 80px;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    transition: all .2s ease;
+
+    @media(max-width:600px){
+        background-color: white;
+        box-shadow: $shadow-sm;
+    }
+    .nav__container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo__text{
+            @media(max-width: 600px){
+                font-size: 1.5rem;
+            }
+        }
+
+        .nav__username{
+            margin-left: auto;
+            margin-right: 20px;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        .nav__cart{
+            position: relative;
+            display: flex;        
+        }
+
+        .nav__cart.active{
+            &:after{
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: 7px;
+                width: 15px;
+                height: 15px;
+                border-radius: 100%;
+                background: $primary-color;
+                border: 2px white solid;
+            }
+        }
+
+    }
+
+   
+}
+nav.active{
+    background-color: white;
+    box-shadow: $shadow-sm;
+}
+.cart__icon{
+    width: 100%;
+}
+
+header{
+    min-height: 80vh;
+    background-image: url(../images/dots.svg),url(../images/dots.svg);
+    background-repeat: no-repeat,no-repeat;
+    background-size: 100px,50px;
+    background-position-y:100px, 100% ;
+    background-position-x:10px, calc(100% - 10px) ;
+
+    @media(max-width: 600px){
+        min-height: 89vh;
+
+    }
+
+    .header__container{
+        min-height:inherit;
+        width: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+
+        .header__image{
+            position: absolute;
+            top: 0;
+            right: 170px;
+            width: 400px;
+            height: 100%;
+            object-fit: contain;
+            z-index: -1;
+
+            @media(max-width: 600px){
+                right: 0;
+                width: 100%;
+
+            }
+        }
+
+        .header__content{
+            margin-top: auto;
+            margin-bottom: auto;
+            
+            padding-top: 100px;
+            // padding-bottom: 100px;
+
+
+            .header__title{
+                font-size: 7.7em;
+                line-height: 121px;
+
+                @media(max-width: 600px){
+                    font-size: 5em;
+                    text-align: center;
+                    background-color: $overlay;
+                    line-height: 100px;
+
+                }
+                .header__ew{
+                    color: white;
+                    font-family: 'Averta Bold';
+
+                    @media(max-width: 600px){
+                        color: $primary-color;
+                    }
+                }
+                .header__i{
+                    position: relative;
+                    &::after{
+                        content: '•';
+                        position: absolute;
+                        color: $primary-color;
+                        top: -23px;
+                        left: -5px;
+                        font-size: 105px;
+
+                        @media(max-width: 600px){
+                            top: -32px;
+                            left: -10px;
+                        }
+                    }
+                }
+            }
+
+            .header__text{
+                @media(max-width: 600px){
+                    margin-top: 5rem !important;
+                    text-align: center;
+                }
+            }
+
+            
+        }
+        .header__more{
+                margin-top: auto;
+                display: flex;
+                align-items: center;
+
+                @media(max-width:600px){
+                    margin-top: 20px;
+                }
+
+                .header__explore__text{
+                    position: relative;
+                    &::after{
+                        content:"";
+                        position: absolute;
+                        right: -1;
+                        top: calc(50% + 2px);
+                        width: 100px;
+                        border-top: solid $primary-color 1px;
+                        margin-left: 5px;
+                    }
+                }
+                
+            }
+
+
+        
+    }
+}
+
+main{
+
+    section{
+        min-height: 100vh;
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        @media(max-width: 600px){
+            // padding-top: 50px;
+            // padding-bottom: 50px;
+        }
+    }
+
+    .collection__title{
+        text-align: right;
+        @media(max-width:600px){
+            text-align: center;
+        }
+
+        .title__line__left{
+            position: relative;
+
+            &::before{
+                content:"";
+                position: absolute;
+                left: calc(-110px);
+                top: calc(50% + 2px);
+                width: 100px;
+                border-top: solid $primary-color 1px;
+                margin-right: 5px;
+
+                @media(max-width: 600px){
+                    left: calc(-60px);
+                    width: 50px;
+
+                }
+            }
+        }
+       
+    }
+
+    .shoe__card{
+        height: 300px;
+        width: 250px;
+        position: relative;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: $shadow-sm;
+        margin-left: auto;
+        margin-right: auto;
+        
+        &:hover{
+            box-shadow: $shadow;
+            .shoe__card__overlay{
+                // display: flex;
+                top: 0;
+                transition: .5s;
+            }
+        }
+
+        .shoe__image{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .shoe__card__overlay{
+            position: absolute;
+            top: 300px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: $overlay;
+            transition: .5s;
+            display: flex;
+            flex-direction: column;
+
+            .overlay__icons{
+                margin: auto;
+            }
+
+            .overlay__info{
+                margin-top: auto;
+                padding: 10px;
+                text-align: center;
+
+                .overlay__title{
+                    font-family: 'Averta Bold';
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+                .overlay__text{
+                    text-transform: capitalize;
+                }
+                .overlay__price{
+                    color: $primary-color;
+                    font-family: "Averta Bold";
+                }
+            }
+        }
+
+    }
+}
+
+.cart{
+    padding-top: 100px;
+    min-height: 100vh;
+    // background-color: red;
+    position: relative;
+
+    .cart__list{
+
+        .cart__list__item{
+            display: flex;
+            border-bottom: 1px $grey solid;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            .cart__card{
+                width: 500px;
+                height: 200px;
+                overflow: hidden;
+                border: none;
+
+                @media(max-width:600px){
+                    width: 300px;
+                    height: 400px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .cart__card__left{
+                    padding: 0;
+                        
+                    .cart__image{
+                        width: 100%;
+                        height: 200px;
+                        object-fit: contain;
+
+                        @media(max-width: 600px){
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .cart__item__total{
+                    font-family: "Averta Bold";
+                }
+
+            }
+        }
+    }
+
+    .cart__container{
+        .cart__row{
+            position: relative;
+            .cart__right{
+                position: fixed;
+                right: 13%;
+                width: 400px;
+                @media(max-width: 600px){
+                    position: unset;
+                    right: unset;
+                }
+                @media(min-width: 1900px){
+                    position: unset;
+                    right: unset;
+
+                }
+            }
+        }
+    }
+   
+}
+.checkout{
+    // border-left: 1px $grey solid;
+    &:hover{
+        box-shadow: $shadow;
+    }
+}
+.swal2-success-circular-line-left,.swal2-success-circular-line-right,.swal2-success-fix{
+    background-color: unset !important;
+}
+#swal2-title{
+    color: white !important;;
+}
+.swal2-footer{
+    border-top: none !important;
+}
+.added{
+    min-height: 30px;
+    text-align: center;
+}
+.swal2-actions{
+    direction: rtl;
+}

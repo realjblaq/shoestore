@@ -1,0 +1,10 @@
+{
+    "name": "Shoestore",
+    "type": "PHP/ECOMMERCE",
+    "description": "An E-commerce shoe store.",
+    "keywords": [
+        "shoe",
+        "shoe store","ecommerce", "online shoe store", "rjb", "rjbtechconsult"
+    ],
+    "license": "MIT"
+}
