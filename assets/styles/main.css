@@ -1,39 +1,34 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'Averta';
+  font-family: "Averta";
   src: url(../font/Averta/Averta.otf);
   font-style: normal;
   font-weight: normal;
 }
-
 @font-face {
-  font-family: 'Averta Black';
+  font-family: "Averta Black";
   src: url("../font/Averta/Averta Black.otf");
   font-style: normal;
   font-weight: normal;
 }
-
 @font-face {
-  font-family: 'Averta Bold';
+  font-family: "Averta Bold";
   src: url("../font/Averta/Averta Bold.otf");
   font-style: normal;
   font-weight: normal;
 }
-
 @font-face {
-  font-family: 'Averta Light';
+  font-family: "Averta Light";
   src: url("../font/Averta/Averta Light.otf");
   font-style: normal;
   font-weight: normal;
 }
-
 @font-face {
-  font-family: 'Averta Thin';
+  font-family: "Averta Thin";
   src: url("../font/Averta/Averta Thin.otf");
   font-style: normal;
   font-weight: normal;
 }
-
 html, body {
   max-width: 100% !important;
   overflow-x: hidden !important;
@@ -41,16 +36,16 @@ html, body {
 
 *,
 body {
-  font-family: 'Averta';
+  font-family: "Averta";
   color: #332D2D;
 }
 
 .font-black {
-  font-family: 'Averta Black' !important;
+  font-family: "Averta Black" !important;
 }
 
 .font-bold {
-  font-family: 'Averta Bold' !important;
+  font-family: "Averta Bold" !important;
 }
 
 .text-primary {
@@ -61,17 +56,14 @@ body {
   background-color: #A32F36 !important;
   border-color: #A32F36 !important;
 }
-
 .btn-primary:hover, .swal2-styled.swal2-confirm:hover {
   background-color: #7b2429;
   border-color: #7b2429;
 }
-
 .btn-primary:focus, .swal2-styled.swal2-confirm:focus {
   background-color: #7b2429 !important;
   border-color: #7b2429 !important;
 }
-
 .btn-primary:active, .swal2-styled.swal2-confirm:active {
   background-color: #7b2429 !important;
   border-color: #7b2429 !important;
@@ -95,30 +87,23 @@ body {
   border-radius: 100%;
   height: 60px;
   width: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 @media (max-width: 600px) {
   .btn-icon {
     height: 50px;
     width: 50px;
   }
 }
-
 .btn-icon img {
   margin: auto;
 }
-
 .btn-icon:hover {
   background-color: #f0f0f0;
 }
-
 .btn-icon:focus {
   background-color: #f0f0f0;
 }
-
 .btn-icon:active {
   background-color: #f0f0f0;
 }
@@ -126,19 +111,15 @@ body {
 .btn-icon-primary {
   background-color: #A32F36;
 }
-
 .btn-icon-primary i {
   color: white;
 }
-
 .btn-icon-primary:hover {
   background-color: #c73e46;
 }
-
 .btn-icon-primary:focus {
   background-color: #c73e46;
 }
-
 .btn-icon-primary:active {
   background-color: #c73e46;
 }
@@ -150,7 +131,6 @@ body {
 a {
   color: #0083DF;
 }
-
 a:hover {
   color: #0065ac;
 }
@@ -161,52 +141,36 @@ nav {
   position: fixed;
   width: 100%;
   z-index: 1;
-  -webkit-transition: all .2s ease;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
-
 @media (max-width: 600px) {
   nav {
     background-color: white;
-    -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   }
 }
-
 nav .nav__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 @media (max-width: 600px) {
   nav .nav__container .logo__text {
     font-size: 1.5rem;
   }
 }
-
 nav .nav__container .nav__username {
   margin-left: auto;
   margin-right: 20px;
   cursor: pointer;
   text-transform: capitalize;
 }
-
 nav .nav__container .nav__cart {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 nav .nav__container .nav__cart.active:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   right: 7px;
@@ -219,8 +183,7 @@ nav .nav__container .nav__cart.active:after {
 
 nav.active {
   background-color: white;
-  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 
 .cart__icon {
@@ -230,127 +193,100 @@ nav.active {
 header {
   min-height: 80vh;
   background-image: url(../images/dots.svg), url(../images/dots.svg);
-  background-repeat: no-repeat,no-repeat;
-  background-size: 100px,50px;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100px, 50px;
   background-position-y: 100px, 100%;
   background-position-x: 10px, calc(100% - 10px);
 }
-
 @media (max-width: 600px) {
   header {
     min-height: 89vh;
   }
 }
-
 header .header__container {
   min-height: inherit;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 header .header__container .header__image {
   position: absolute;
   top: 0;
   right: 170px;
   width: 400px;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   z-index: -1;
 }
-
 @media (max-width: 600px) {
   header .header__container .header__image {
     right: 0;
     width: 100%;
   }
 }
-
 header .header__container .header__content {
   margin-top: auto;
   margin-bottom: auto;
   padding-top: 100px;
 }
-
 header .header__container .header__content .header__title {
   font-size: 7.7em;
   line-height: 121px;
 }
-
 @media (max-width: 600px) {
   header .header__container .header__content .header__title {
     font-size: 5em;
     text-align: center;
-    background-color: #ffffffa8;
+    background-color: rgba(255, 255, 255, 0.6588235294);
     line-height: 100px;
   }
 }
-
 header .header__container .header__content .header__title .header__ew {
   color: white;
-  font-family: 'Averta Bold';
+  font-family: "Averta Bold";
 }
-
 @media (max-width: 600px) {
   header .header__container .header__content .header__title .header__ew {
     color: #A32F36;
   }
 }
-
 header .header__container .header__content .header__title .header__i {
   position: relative;
 }
-
 header .header__container .header__content .header__title .header__i::after {
-  content: '•';
+  content: "•";
   position: absolute;
   color: #A32F36;
-  top: -23px;
+  top: -39px;
   left: -5px;
   font-size: 105px;
 }
-
 @media (max-width: 600px) {
   header .header__container .header__content .header__title .header__i::after {
     top: -32px;
     left: -10px;
   }
 }
-
 @media (max-width: 600px) {
   header .header__container .header__content .header__text {
     margin-top: 5rem !important;
     text-align: center;
   }
 }
-
 header .header__container .header__more {
   margin-top: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 @media (max-width: 600px) {
   header .header__container .header__more {
     margin-top: 20px;
   }
 }
-
 header .header__container .header__more .header__explore__text {
   position: relative;
 }
-
 header .header__container .header__more .header__explore__text::after {
   content: "";
   position: absolute;
@@ -366,38 +302,32 @@ main section {
   padding-top: 100px;
   padding-bottom: 100px;
 }
-
 main .collection__title {
   text-align: right;
 }
-
 @media (max-width: 600px) {
   main .collection__title {
     text-align: center;
   }
 }
-
 main .collection__title .title__line__left {
   position: relative;
 }
-
 main .collection__title .title__line__left::before {
   content: "";
   position: absolute;
-  left: calc(-110px);
+  left: -110px;
   top: calc(50% + 2px);
   width: 100px;
   border-top: solid #A32F36 1px;
   margin-right: 5px;
 }
-
 @media (max-width: 600px) {
   main .collection__title .title__line__left::before {
-    left: calc(-60px);
+    left: -60px;
     width: 50px;
   }
 }
-
 main .shoe__card {
   height: 300px;
   width: 250px;
@@ -406,68 +336,49 @@ main .shoe__card {
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
   margin-left: auto;
   margin-right: auto;
 }
-
 main .shoe__card:hover {
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-
 main .shoe__card:hover .shoe__card__overlay {
   top: 0;
-  -webkit-transition: .5s;
-  transition: .5s;
+  transition: 0.5s;
 }
-
 main .shoe__card .shoe__image {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-
 main .shoe__card .shoe__card__overlay {
   position: absolute;
   top: 300px;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #ffffffa8;
-  -webkit-transition: .5s;
-  transition: .5s;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background-color: rgba(255, 255, 255, 0.6588235294);
+  transition: 0.5s;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 main .shoe__card .shoe__card__overlay .overlay__icons {
   margin: auto;
 }
-
 main .shoe__card .shoe__card__overlay .overlay__info {
   margin-top: auto;
   padding: 10px;
   text-align: center;
 }
-
 main .shoe__card .shoe__card__overlay .overlay__info .overlay__title {
-  font-family: 'Averta Bold';
+  font-family: "Averta Bold";
   margin: 0;
   text-transform: uppercase;
 }
-
 main .shoe__card .shoe__card__overlay .overlay__info .overlay__text {
   text-transform: capitalize;
 }
-
 main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
   color: #A32F36;
   font-family: "Averta Bold";
@@ -478,23 +389,18 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
   min-height: 100vh;
   position: relative;
 }
-
 .cart .cart__list .cart__list__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border-bottom: 1px #D6D6D6 solid;
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
 .cart .cart__list .cart__list__item .cart__card {
   width: 500px;
   height: 200px;
   overflow: hidden;
   border: none;
 }
-
 @media (max-width: 600px) {
   .cart .cart__list .cart__list__item .cart__card {
     width: 300px;
@@ -503,46 +409,36 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
     margin-right: auto;
   }
 }
-
 .cart .cart__list .cart__list__item .cart__card .cart__card__left {
   padding: 0;
 }
-
 .cart .cart__list .cart__list__item .cart__card .cart__card__left .cart__image {
   width: 100%;
   height: 200px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
-
 @media (max-width: 600px) {
   .cart .cart__list .cart__list__item .cart__card .cart__card__left .cart__image {
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }
-
 .cart .cart__list .cart__list__item .cart__card .cart__item__total {
   font-family: "Averta Bold";
 }
-
 .cart .cart__container .cart__row {
   position: relative;
 }
-
 .cart .cart__container .cart__row .cart__right {
   position: fixed;
   right: 13%;
   width: 400px;
 }
-
 @media (max-width: 600px) {
   .cart .cart__container .cart__row .cart__right {
     position: unset;
     right: unset;
   }
 }
-
 @media (min-width: 1900px) {
   .cart .cart__container .cart__row .cart__right {
     position: unset;
@@ -551,8 +447,7 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
 }
 
 .checkout:hover {
-  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .swal2-success-circular-line-left, .swal2-success-circular-line-right, .swal2-success-fix {
@@ -575,4 +470,5 @@ main .shoe__card .shoe__card__overlay .overlay__info .overlay__price {
 .swal2-actions {
   direction: rtl;
 }
+
 /*# sourceMappingURL=main.css.map */

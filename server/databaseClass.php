@@ -14,7 +14,8 @@ class databaseClass{
 
     //connect to database
     //connect function will be in the constructor for auto connect every time  the class is used
-    public function __construct($username = "root", $password = "", $host = "localhost", $dbname = "shoestore", $options = []){
+    //onlineDbName:apomcvnv_shoestore    onlineUserName:apomcvnv_justicemarkwei  onlinePassword:Cu***q
+    public function __construct($username = "apomcvnv_justicemarkwei", $password = "Cuz@mb1aq", $host = "localhost", $dbname = "apomcvnv_shoestore", $options = []){
         $this->isConn - TRUE;
         try {
             //connect to database using the database information
